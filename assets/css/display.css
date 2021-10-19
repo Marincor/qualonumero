@@ -40,7 +40,7 @@
 /* svg animation */
 .segment {
   fill: #dddddd;
-  opacity: 0.1;
+  opacity: 1;
 }
 .segment.a {
   fill: rgba(38, 42, 52, 1);
@@ -133,4 +133,9 @@
 .segment.g.right {
   fill: #32bf00;
   opacity: 1;
+}
+
+.hidden {
+
+  display: none;
 }
