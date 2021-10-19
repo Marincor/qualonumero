@@ -1,0 +1,136 @@
+.boxDisplay__numberBox {
+  display: flex;
+}
+
+.boxDisplay {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 250px;
+
+}
+
+.boxDisplay__result {
+  width: 248px;
+  height: 35px;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: -1px;
+  color: #ff6600;
+}
+
+/* if right */
+.boxDisplay__result.congrats {
+  color: #32bf00;
+}
+
+/* if error */
+.boxDisplay__result.fail {
+  color: #cc3300;
+}
+
+
+
+/* svg animation */
+.segment {
+  fill: #dddddd;
+  opacity: 0.1;
+}
+.segment.a {
+  fill: rgba(38, 42, 52, 1);
+  opacity: 1;
+}
+.segment.b {
+  fill: rgba(38, 42, 52, 1);
+  opacity: 1;
+}
+.segment.c {
+  fill: rgba(38, 42, 52, 1);
+  opacity: 1;
+}
+.segment.d {
+  fill: rgba(38, 42, 52, 1);
+  opacity: 1;
+}
+.segment.e {
+  fill: rgba(38, 42, 52, 1);
+  opacity: 1;
+}
+.segment.f {
+  fill: rgba(38, 42, 52, 1);
+  opacity: 1;
+}
+.segment.g {
+  fill: rgba(38, 42, 52, 1);
+  opacity: 1;
+}
+
+/* if bad gateway */
+
+.segment.a.error {
+  fill: #cc3300;
+  opacity: 1;
+}
+
+.segment.b.error {
+  fill: #cc3300;
+  opacity: 1;
+}
+.segment.c.error {
+  fill: #cc3300;
+  opacity: 1;
+}
+.segment.d.error {
+  fill: #cc3300;
+  opacity: 1;
+}
+.segment.e.error {
+  fill: #cc3300;
+  opacity: 1;
+}
+.segment.f.error {
+  fill: #cc3300;
+  opacity: 1;
+}
+.segment.g.error {
+  fill: #cc3300;
+  opacity: 1;
+}
+
+/* if right */
+
+.segment.a.right {
+  fill: #32bf00;
+  opacity: 1;
+}
+
+.segment.b.right {
+  fill: #32bf00;
+  opacity: 1;
+}
+.segment.c.right {
+  fill: #32bf00;
+  opacity: 1;
+}
+.segment.d.right {
+  fill: #32bf00;
+  opacity: 1;
+}
+.segment.e.right {
+  fill: #32bf00;
+  opacity: 1;
+}
+.segment.f.right {
+  fill: #32bf00;
+  opacity: 1;
+}
+.segment.g.right {
+  fill: #32bf00;
+  opacity: 1;
+}
