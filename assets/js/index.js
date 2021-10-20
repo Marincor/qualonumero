@@ -1,94 +1,123 @@
+import {
+  renderNumber,
+  initialDisplay,
+  renderDigit,
+  hiddenDigit,
+  errorNumbered,
+} from "./display/digit.js";
+import renderResultText from "./display/result.js";
 import getNumber from "./service/api.js";
 
+/* -Api Req-- */
+
 let number = null;
+await getNumber().then((data) =>
+  data.value ? (number = data.value) : (number = data)
+);
+console.log(number)
+/* -------------------- initial display --------------------------------------- */
+
+      
 
 
-/* dashs of svg led - 7 */
+        // if error requisition ocurred //
+            const numberError = number.StatusCode;
+            const firstNumberError = numberError? JSON.parse(
+            JSON.stringify(number.StatusCode).substr(0, 1)
+            ): false;
+            const secondNumberError = numberError?  JSON.parse(
+            JSON.stringify(number.StatusCode).substr(1, 1)
+            ): false;
+            const thirdNumberError = numberError? JSON.parse(
+            JSON.stringify(number.StatusCode).substr(0, 1)
+            ): false;
 
-const dashA = document.getElementById("a") 
-const dashB = document.getElementById("b") 
-const dashC = document.getElementById("c") 
-const dashD = document.getElementById("d") 
-const dashE = document.getElementById("e") 
-const dashF = document.getElementById("f") 
-const dashG = document.getElementById("g") 
+            // -- led display -- //
+         
+            // only one digit //
+
+            function renderErrorNumber(){
+                if (numberError < 10) {
+                    hiddenDigit("second");
+                    hiddenDigit("third");
+                    renderNumber(firstNumberError, secondNumberError);
+                    errorNumbered("first")
+                    }
+        
+                    //  two digit //
+                    else if (numberError > 9 && numberError < 100) {
+                    hiddenDigit("third");
+                    renderDigit("second");
+                    renderNumber(firstNumberError, secondNumberError);
+                    errorNumbered("first");
+                    errorNumbered("second");
+                   
+                    }
+                    //  three digit //
+                    else {
+                    renderDigit("second");
+                    renderDigit("third");
+                    renderNumber(firstNumberError, secondNumberError, thirdNumberError);
+                    errorNumbered("first");
+                    errorNumbered("second");
+                    errorNumbered("third");
+                    }
+
+            }
 
 
-function resetClass () {
+            initialDisplay();
+            renderResultText(undefined, number);
+            if(numberError) {
 
-    dashA.classList.add('a');
-    dashB.classList.add('b');
-    dashC.classList.add('c');
-    dashD.classList.add('d');
-    dashE.classList.add('e');
-    dashF.classList.add('f');
-    dashG.classList.remove('g')
-}
+                renderErrorNumber()
+            }
+         
 
-
-function removeClass(constLetter, className) {
-
- constLetter.classList.remove(className)
-
-
-}
-
-function addClass (constLetter, className) {
-
-    constLetter.classList.add(className)
-}
-/* --- */ 
-
-await getNumber().then(data => number = data.value)
+            
+/* form */
 
 const form = document.querySelector(".gameForm");
 
-form.addEventListener('submit', (e) =>{
+// Guess //
 
-e.preventDefault();
-const numberTyped = JSON.parse(e.target[0].value);
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+console.log('teste')
+  // typed number //
+  const numberTyped = JSON.parse(e.target[0].value);
+  const firstNumberTyped = JSON.parse(e.target[0].value.substr(0, 1));
+  const secondNumberTyped =
+    numberTyped > 9 ? JSON.parse(e.target[0].value.substr(1, 1)) : false;
+  const thirdNumberTyped =
+    numberTyped > 99 ? JSON.parse(e.target[0].value?.substr(2, 1)) : false;
 
+  // text result //
 
-    console.log(numberTyped)
+  renderResultText(numberTyped, number);
 
+  // -- led display -- //
 
-    if (numberTyped < 10) {
+  // only one digit //
+  if (numberTyped < 10) {
+    hiddenDigit("second");
+    hiddenDigit("third");
+    renderNumber(firstNumberTyped, secondNumberTyped);
+    e.target[0].value = "";
+  }
 
-        switch(numberTyped) {
-
-            case 1: resetClass();removeClass(dashA, "a"); removeClass(dashD, "d");removeClass(dashE, "e"); removeClass(dashF, "f"); 
-            break;
-            case 2 :resetClass(); removeClass(dashF, "f"); removeClass(dashC, "c"); addClass(dashG, "g");
-            break;
-            case 3 : resetClass();removeClass(dashF, "f");removeClass(dashE, "e");addClass(dashG, "g");
-            break;
-            case 4 : resetClass();removeClass(dashA, "a"); removeClass(dashE, "e"); removeClass(dashD, "d"); addClass(dashG, "g");
-            break;
-            case 5 : resetClass();removeClass(dashB, "b");removeClass(dashE, "e"); addClass(dashG, "g");
-            break;
-            case 6 : resetClass();removeClass(dashB, "b");addClass(dashG, "g");
-            break;
-            case 7 : resetClass();removeClass(dashF, "f");removeClass(dashE, "e");removeClass(dashD, "d");
-            break;
-            case 8 : resetClass();addClass(dashG, "g");
-            break;
-            case 9 : resetClass();removeClass(dashE, "e");removeClass(dashD, "d");addClass(dashG, "g");
-            break;
-            default: resetClass();
-            break;
-        }
-    }
-
-})
-
-// display //
-
-const firstDigit = document.getElementById("first");
-
-const secondDigit = document.getElementById("second");
-secondDigit.classList.add('hidden')
-const thirdDigit = document.getElementById("third");
-thirdDigit.classList.add('hidden')
-
-
-console.log(number)
+  //  two digit //
+  else if (numberTyped > 9 && numberTyped < 100) {
+    hiddenDigit("third");
+    renderDigit("second");
+    renderNumber(firstNumberTyped, secondNumberTyped);
+    e.target[0].value = "";
+  }
+  //  three digit //
+  else {
+    renderDigit("second");
+    renderDigit("third");
+    renderNumber(firstNumberTyped, secondNumberTyped, thirdNumberTyped);
+    e.target[0].value = "";
+  }
+});

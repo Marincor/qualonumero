@@ -108,7 +108,14 @@
     border-radius: 0.2rem;
     border: 1px solid #CFCFCF;
     background-color: rgba(245, 245, 245, 1);
+   
   }
+
+  .gameForm__input.disable{
+
+    pointer-events: none;
+  }
+
   .gameForm__input:focus {
 
     background-color: white;

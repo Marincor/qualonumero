@@ -2,6 +2,8 @@
   display: flex;
 }
 
+
+
 .boxDisplay {
   display: flex;
   flex-direction: column;
@@ -135,7 +137,16 @@
   opacity: 1;
 }
 
+/* hidden digit */ 
 .hidden {
 
   display: none;
+}
+
+
+/* hidden button */ 
+
+.hiddenBtn {
+
+  visibility: hidden;
 }

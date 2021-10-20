@@ -101,36 +101,43 @@
             >
               <polygon
                 class="segment a"
+                id="a2"
                 points=" 1, 1  2, 0  8, 0  9, 1  8, 2  2, 2"
                 fill="#FF0000"
               />
               <polygon
                 class="segment b"
+                id="b2"
                 points=" 9, 1 10, 2 10, 8  9, 9  8, 8  8, 2"
                 fill="#FF0000"
               />
               <polygon
                 class="segment c"
+                id="c2"
                 points=" 9, 9 10,10 10,16  9,17  8,16  8,10"
                 fill="#FF0000"
               />
               <polygon
                 class="segment d"
+                id="d2"
                 points=" 9,17  8,18  2,18  1,17  2,16  8,16"
                 fill="#FF0000"
               />
               <polygon
                 class="segment e"
+                id="e2"
                 points=" 1,17  0,16  0,10  1, 9  2,10  2,16"
                 fill="#FF0000"
               />
               <polygon
                 class="segment f"
+                id="f2"
                 points=" 1, 9  0, 8  0, 2  1, 1  2, 2  2, 8"
                 fill="#FF0000"
               />
               <polygon
-                class="segment g"
+                class="segment"
+                id="g2"
                 points=" 1, 9  2, 8  8, 8  9, 9  8,10  2,10"
                 fill="#FF0000"
               />
@@ -156,36 +163,43 @@
             >
               <polygon
                 class="segment a"
+                id="a3"
                 points=" 1, 1  2, 0  8, 0  9, 1  8, 2  2, 2"
                 fill="#FF0000"
               />
               <polygon
                 class="segment b"
+                id="b3"
                 points=" 9, 1 10, 2 10, 8  9, 9  8, 8  8, 2"
                 fill="#FF0000"
               />
               <polygon
                 class="segment c"
+                id="c3"
                 points=" 9, 9 10,10 10,16  9,17  8,16  8,10"
                 fill="#FF0000"
               />
               <polygon
                 class="segment d"
+                id="d3"
                 points=" 9,17  8,18  2,18  1,17  2,16  8,16"
                 fill="#FF0000"
               />
               <polygon
                 class="segment e"
+                id="e3"
                 points=" 1,17  0,16  0,10  1, 9  2,10  2,16"
                 fill="#FF0000"
               />
               <polygon
                 class="segment f"
+                id="f3"
                 points=" 1, 9  0, 8  0, 2  1, 1  2, 2  2, 8"
                 fill="#FF0000"
               />
               <polygon
-                class="segment g"
+                class="segment"
+                id="g3"
                 points=" 1, 9  2, 8  8, 8  9, 9  8,10  2,10"
                 fill="#FF0000"
               />
@@ -195,7 +209,7 @@
       </div>
 
       <div class="boxForms">
-        <button class="boxForms__buttonAgain">
+        <button class="boxForms__buttonAgain hiddenBtn" >
           <svg
             width="12"
             height="12"
@@ -218,7 +232,7 @@
             placeholder="Digite o palpite"
             class="gameForm__input"
             maxlength="3"
-            title="apenas números"
+            title="apenas números; números negativos não são válidos"
             pattern="\d{1,3}"
           />
           <button class="gameForm__button">Enviar</button>
