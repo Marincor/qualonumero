@@ -6,6 +6,8 @@ import {
   errorNumbered,
 } from "./display/digit.js";
 import renderResultText from "./display/result.js";
+import turnOffLoading from "./loading/setLoading.js";
+import typeWriter from "./loading/type.js";
 import getNumber from "./service/api.js";
 
 /* -Api Req-- */
@@ -14,7 +16,19 @@ let number = null;
 await getNumber().then((data) =>
   data.value ? (number = data.value) : (number = data)
 );
-console.log(number)
+
+
+
+    // initial loading of Page // 
+
+    typeWriter()
+
+    setTimeout(()=>{
+
+      turnOffLoading()
+      
+    }, 4000)
+    
 /* -------------------- initial display --------------------------------------- */
 
       
@@ -83,7 +97,7 @@ const form = document.querySelector(".gameForm");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-console.log('teste')
+
   // typed number //
   const numberTyped = JSON.parse(e.target[0].value);
   const firstNumberTyped = JSON.parse(e.target[0].value.substr(0, 1));
@@ -93,6 +107,8 @@ console.log('teste')
     numberTyped > 99 ? JSON.parse(e.target[0].value?.substr(2, 1)) : false;
 
   // text result //
+
+ 
 
   renderResultText(numberTyped, number);
 

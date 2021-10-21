@@ -7,7 +7,11 @@
     <link rel="stylesheet" href="./assets/css/reset.css" />
     <link rel="stylesheet" href="./assets/css/styles.css" />
     <link rel="stylesheet" href="./assets//css/display.css" />
-    <title>Studio Sol - Prova técnica</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon_io/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon_io/favicon-16x16.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon_io/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon_io/favicon.ico" />
+    <title>Studio Sol</title>
   </head>
   <body class="body">
     <div class="container">
@@ -209,7 +213,7 @@
       </div>
 
       <div class="boxForms">
-        <button class="boxForms__buttonAgain hiddenBtn" >
+        <button class="boxForms__buttonAgain hiddenBtn">
           <svg
             width="12"
             height="12"
@@ -232,12 +236,26 @@
             placeholder="Digite o palpite"
             class="gameForm__input"
             maxlength="3"
-            title="apenas números; números negativos não são válidos"
-            pattern="\d{1,3}"
+            title="Apenas números; Números negativos e números com zero à esquerda não são válidos. "
+            pattern="^(?!0.)\d{1,3}$"
           />
           <button class="gameForm__button">Enviar</button>
         </form>
       </div>
+    </div>
+    <div class="loading">
+      <img
+        src="./assets//img/loading.svg"
+        alt="loading-animation"
+        loading="lazy"
+        class="loading__animation"
+      />
+      <p class="loading__text"></p>
+      <img
+        src="./assets/img/studioSol.jpg"
+        alt="studioSol-icon"
+        class="loading__studioSol"
+      />
     </div>
     <script type="module" src="./assets//js/index.js"></script>
   </body>
